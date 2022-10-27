@@ -21,3 +21,35 @@ function displayCurrentDate() {
 
 displayCurrentDate(currentDate);
 
+//clears local storage 
+$('#clearbtn').on('click', function(){
+    localStorage.clear()
+    searchHistoryEl.innerHTML = ''
+})
+
+// add recent searches
+for (var i=0; i < searchHistArray.length; i++) {
+    // var searchHistBtn = searchHistArray[i];
+    // var histBtn = document.createElement('button').setAttribute('class', 'btn btn-success');
+    // histBtn.append(searchHistBtn);
+    // searchHistoryEl.append(histBtn);
+    var searchBtn = $('<button>').addClass('btn btn-success').text(searchHistArray[i]);
+    searchHistoryEl.append(searchBtn);
+}
+
+// search for city and add search history buttons
+
+$('#searchbtn').on('click', function(e) {
+    e.preventDefault()
+    var searchInput = $('#cityInput').val();
+    var searchBtn = $('<button>').addClass('btn').text(searchInput)
+    console.log(searchInput)
+    searchHistArray.push(searchInput)
+    localStorage.setItem('searchHistArray',JSON.stringify(searchHistArray))
+    $('#searchHistory').append(searchBtn)
+    getApi(searchInput)
+    var searchBtn = $('<button>').addClass('btn btn-success').text(searchHistArray[i]);
+    searchHistoryEl.append(searchBtn);
+    
+})
+
