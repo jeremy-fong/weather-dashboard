@@ -87,5 +87,34 @@ function currentWeather(lat,lon){
         ).attr('alt', data.weather[0].description);
     })
 
+    fiveDayForecast(lat,lon)
+}
 
+// data for 5 day forecast
+function fiveDayForecast(lat,lon) {
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=98dab0374d715d8b0802f2824300c3e2&units=imperial`)
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (data) {
+        console.log(data)
+        var day1 = data.list[4]
+        var day2 = data.list[12]
+        var day3 = data.list[20]
+        var day4 = data.list[28]
+        var day5 = data.list[36]
+        var fiveCast = [day1, day2, day3, day4, day5]
+        console.log(fiveCast)
+        for (var i=0; i <= 5; i++) {
+            let fiveDayCast = fiveCast[i].dt_txt;
+            let currDay = fiveCast[i];
+                    $(`div.day-${i} .card-title`).text(moment(fiveDayCast).format('L'));
+                    $(`div.day-${i} .fiveDayCast-img`).attr(
+                        'src',
+                        `http://openweathermap.org/img/wn/${currDay.weather[0].icon}.png`
+                    ).attr('alt', currDay.weather[0].description);
+                    $(`div.day-${i} .fiveDayCast-temp`).text(currDay.main.temp);
+                    $(`div.day-${i} .fiveDayCast-feels`).text(currDay.main.feels_like);
+        }
+    })
 }
