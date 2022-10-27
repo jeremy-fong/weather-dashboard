@@ -9,5 +9,5 @@ This is a weather dashboard that will display the current weather along with a f
 
 
 ## Deployment URL
-Deployed URL: 
-GitHub URL: 
+Deployed URL: https://jeremy-fong.github.io/weather-dashboard/
+GitHub URL: https://github.com/jeremy-fong/weather-dashboard
