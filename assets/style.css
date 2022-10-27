@@ -1,0 +1,45 @@
+/* header */
+#jumbotron {
+    background: linear-gradient(0.25turn, #FF5677, #9145B6, #4C3F91);
+    justify-content: center;
+}
+
+#jumbotitle {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: ui-rounded;
+}
+
+/* main container */
+.maincontainer {
+    background-color: #fff;
+}
+
+/* current day card */
+#cityDate {
+background-color: #7bc6dd;
+}
+
+#date {
+    margin-left: 15px;
+}
+
+#currentWeatherContainer {
+    background-color: #B2DEEC;
+    margin-bottom: 20px;
+}
+
+/* 5 day forecast cards */
+.card-title {
+    display: flex;
+    justify-content: center;
+}
+
+/* search history */
+.btn {
+    margin: .5rem;
+}
+
+
+
